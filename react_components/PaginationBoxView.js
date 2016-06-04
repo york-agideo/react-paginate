@@ -16,6 +16,7 @@ export default class PaginationBoxView extends Component {
     previousLabel         : PropTypes.node,
     nextLabel             : PropTypes.node,
     breakLabel            : PropTypes.node,
+    itemLabel            : PropTypes.node,
     clickCallback         : PropTypes.func,
     initialSelected       : PropTypes.number,
     forceSelected         : PropTypes.number,
@@ -39,6 +40,7 @@ export default class PaginationBoxView extends Component {
     nextClassName        : "next",
     previousLabel        : "Previous",
     nextLabel            : "Next",
+    itemLabel            : "ItemLabel",
     breakLabel           : "...",
     disabledClassName    : "disabled"
   };
@@ -105,6 +107,7 @@ export default class PaginationBoxView extends Component {
 
       for (let index = 0; index < this.props.pageNum; index++) {
         items['key' + index] = <PageView
+          itemLabel={this.props.itemLabel}
           onClick={this.handlePageSelected.bind(null, index)}
           selected={this.state.selected === index}
           pageClassName={this.props.pageClassName}
@@ -137,6 +140,7 @@ export default class PaginationBoxView extends Component {
 
         let pageView = (
           <PageView
+            itemLabel={this.props.itemLabel}
             onClick={this.handlePageSelected.bind(null, index)}
             selected={this.state.selected === index}
             pageClassName={this.props.pageClassName}

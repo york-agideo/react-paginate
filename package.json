@@ -21,7 +21,8 @@
     "url": "https://github.com/AdeleD/react-paginate/issues"
   },
   "dependencies": {
-    "classnames": "^1.2.2"
+    "classnames": "^1.2.2",
+    "material-ui": "~0.14.1"
   },
   "peerDependencies": {
     "react-addons-create-fragment": "^15.0.0",

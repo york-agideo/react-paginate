@@ -15,10 +15,12 @@ export default class PageView extends React.Component {
       }
     }
 
+    const { itemLabel } = this.props;
+
     return (
         <li className={cssClassName}>
             <a {...this.props} className={linkClassName}>
-              {this.props.page}
+              {React.cloneElement(itemLabel, {children: this.props.page})}
             </a>
         </li>
     );

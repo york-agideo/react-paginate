@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
+import IconButton from 'material-ui/lib/icon-button';
+import LeftIcon from 'material-ui/lib/svg-icons/navigation/chevron-left';
+import RightIcon from 'material-ui/lib/svg-icons/navigation/chevron-right';
 import $ from 'jquery';
 
 window.React = React;
@@ -68,10 +71,11 @@ export class App extends Component {
     return (
       <div className="commentBox">
         <CommentList data={this.state.data} />
-        <ReactPaginate previousLabel={"previous"}
-                       nextLabel={"next"}
-                       breakLabel={<a href="">...</a>}
-                       pageNum={this.state.pageNum}
+        <ReactPaginate previousLabel={<IconButton children={<LeftIcon />} />}
+                       itemLabel={<IconButton style={{fontSize: '1.1em'}} />}
+                       nextLabel={<IconButton children={<RightIcon />} />}
+                       breakLabel={<IconButton style={{fontSize: '1.1em', cursor: 'auto'}} children={'...'} />}
+                       pageNum={50000 || this.state.pageNum}
                        marginPagesDisplayed={2}
                        pageRangeDisplayed={5}
                        clickCallback={this.handlePageClick}
